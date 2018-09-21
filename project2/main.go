@@ -15,15 +15,13 @@ func fib() func() int {
 func main() {
 	const max = 4000000
 	f := fib()
-	x := 0
+	x := f()
 	sum := 0
 	for x < max {
-		x = f()
-		if x < max {
-			if x%2 == 0 {
-				sum += x
-			}
+		if x%2 == 0 {
+			sum += x
 		}
+		x = f()
 	}
 	fmt.Println(sum)
 }
